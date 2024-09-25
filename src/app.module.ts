@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -20,10 +19,6 @@ import { ProductModule } from './product/product.module';
     }),
     UserModule,
     ProductModule,
-    ThrottlerModule.forRoot({
-      ttl: 60 as any, // Time to live (in seconds)
-      limit: 10 as any, // Limit to 10 requests per minute
-    }),
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -15,7 +15,7 @@ import { ProductModule } from './product/product.module';
       password: 'password',
       database: 'nestjs_crud',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, // Do not use this in production
+      synchronize: true,
     }),
     UserModule,
     ProductModule,

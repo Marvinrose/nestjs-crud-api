@@ -30,10 +30,13 @@ export class UserService {
     return this.findOne(id);
   }
 
-  async remove(id: string): Promise<void> {
-    const result = await this.usersRepository.delete(id);
-    if (result.affected === 0) {
+  async remove(id: string): Promise<User> {
+    // Change return type to Promise<User>
+    const user = await this.findOne(id); // Find the user first
+    if (!user) {
       throw new NotFoundException(`User with ID "${id}" not found`);
     }
+    await this.usersRepository.delete(id);
+    return user; // Return the deleted user
   }
 }

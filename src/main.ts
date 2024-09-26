@@ -14,6 +14,8 @@ async function bootstrap() {
     .setTitle('CRUD API')
     .setDescription('API for managing users and products')
     .setVersion('1.0')
+    .addTag('users')
+    .addTag('products')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api-docs', app, document);
